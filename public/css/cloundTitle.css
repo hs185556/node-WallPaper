@@ -1,0 +1,137 @@
+
+/*云标签开始*/
+.clouddiv{
+	width: 900px;
+	height: 500px;
+	position: relative;
+	left: 50%;
+	margin-left: -450px;
+	margin-top: 50%;
+
+	background-image: linear-gradient(135deg, rgb(253, 252, 251) 0%, rgb(226, 209, 195) 100%);
+
+	border-radius: 15px;
+	box-shadow: 0px 10px 20px 20px rgba(0, 0, 0, 0.17);
+
+	  
+}
+.wall{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+div#background{
+    background: url("../img/萤火虫之墓.jpg")no-repeat;
+    -webkit-animation: dd 100s linear infinite;/*-webkit-animation: myMove 2s linear 2s infinite ;无限循环*/
+   /*动画调用
+调用动画的规则名称
+动画持续的时间（可选）
+动画的过渡类型
+延迟时间
+动画播放次数（默认1次，也可以成数字或者infinite则是无限循环）
+是否停留在结束状态 forwards
+反向运动 alternate 1*/
+    -moz-animation: dd 100s linear infinite;
+    -o-animation: dd 100s linear infinite;/*浏览器兼容*/
+    animation: dd 100s linear infinite;
+    background-size: cover;
+}
+div#midground{
+    background: url("../img/midground.png");
+    z-index: 1;
+    -webkit-animation: cc 100s linear infinite;
+    -moz-animation: cc 100s linear infinite;
+    -o-animation: cc 100s linear infinite;
+    animation: cc 100s linear infinite;
+}
+div#foreground{
+    background: url("../img/foreground.png");
+    z-index: 2;
+    -webkit-animation: cc 153s linear infinite;
+    -o-animation: cc 153s linear infinite;
+    -moz-animation: cc 153s linear infinite;
+    animation: cc 153s linear infinite;
+}
+div#top{
+    background: url("../img/midground.png");
+    z-index: 4;
+    -webkit-animation: dd 100s linear infinite;
+    -o-animation: dd 100s linear infinite;
+    animation: da 100s linear infinite;
+}
+/*background-position 属性设置背景图像的起始位置。
+
+这个属性设置背景原图像（由 background-image 定义）的位置，背景图像如果要重复，将从这一点开始。*/
+@-webkit-keyframes cc {
+    from{
+        background-position: 0 0;
+        transform: translateY(10px);
+    }
+    to{
+        background-position: 600% 0;
+    }
+}
+@-o-keyframes cc {
+    from{
+        background-position: 0 0;
+        transform: translateY(10px);
+    }
+    to{
+        background-position: 600% 0;
+    }
+}
+@-moz-keyframes cc {
+    from{
+        background-position: 0 0;
+        transform: translateY(10px);
+    }
+    to{
+        background-position: 600% 0;
+    }
+}
+@keyframes cc {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 600% 0;
+    }
+}
+
+@keyframes da {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 600%;
+    }
+}
+@-webkit-keyframes da {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 600%;
+    }
+}
+@-moz-keyframes da {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 600%;
+    }
+}
+@-ms-keyframes da {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 600%;
+    }
+}
+
+
+/*云标签结束*/

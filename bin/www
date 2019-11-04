@@ -1,0 +1,143 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('wallpaper3.0:server');
+var http = require('http');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+  if (isNaN(port)) {
+    // named piper
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
+
+//1.引入包connection
+var socketPackage = require('socket.io');
+//2.生成实例
+var io = socketPackage(server);
+//3.建立连接
+io.on('connection',(socket)=>{//这里到底是用connect还是用connection??? 
+	console.log('连接客户端成功');
+	//3.1服务器给客户端广播消息  或者说返回消息
+	socket.emit('msg','欢迎来找小撩聊天');
+	//3.2 服务器端接受客户端消息
+	socket.on('msg',(data)=>{
+//		console.log(data);
+		var msg = backMsg(data);
+		socket.emit('msg',msg);
+	});
+//	3.3监听链接关闭
+	socket.on('disconnect',()=>{
+		console.log('客户端连接断开');
+	})
+});
+
+//4. 根据用户输入，回复消息
+var backMsg = (data)=>{
+	var msg = null;
+	switch(data){
+		case '小撩':
+			msg = '我在呢';
+			break;
+		case '明天天气':
+			msg = '泉州市明天天气不太好，最低温度为12°，有暴风雨';
+			break;
+		case '你好':
+			msg = '你好';
+			
+			break;
+		case '你真聪明':
+			msg = '哪里 哪里';
+			break;
+		case '图片下载':
+			msg = '关注微信公众号WallPaper，有更多图片素材下载';
+			break;
+		case '性别':
+			msg = '机器人是不分男女的呀。';
+			break;
+		case '我爱你':
+			msg = '我看过那么多云，你是最灵动的那一朵';
+			break;
+		default:
+			msg = '小撩正在努力升级中.....';
+			break;
+	}
+	return msg;
+}

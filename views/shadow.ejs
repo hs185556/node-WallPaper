@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<style>
+	html {
+		box-sizing: border-box;
+		font: 18px PT Mono;
+		background: antiquewhite;
+	}
+	
+	body {
+		height: 100vh;
+	}
+	
+	.dom4-con {
+		padding-top: 100px;
+		width: 80%;
+		height: 100vh;
+		margin: 0 auto;
+	}
+	
+	.dom4-con .shadow-con {
+		text-align: center;
+		width: 190px;
+		height: 300px;
+		margin-left: 50px;
+		float: left;
+	}
+	
+	.dom4-con .shadow-con .title {
+		letter-spacing: 5px;
+	}
+	
+	.dom4-con .shadow-con .box {
+		width: 15%;
+		min-width: 150px;
+		display: block;
+		height: 40px;
+		position: relative;
+		border-radius: 5px;
+		background: linear-gradient(to right, #abbd73 35%, #d6e2ad 100%);
+		margin-bottom: 30px;
+		padding: 10px 20px 0 30px;
+		color: darkslategray;
+		box-shadow: 1px 2px 1px -1px #777;
+		transition: background 200ms ease-in-out;
+		text-align: right;
+	}
+	
+	.dom4-con .shadow-con .box a {
+		color: #fff;
+		text-decoration: none;
+	}
+	
+	.dom4-con .shadow-con .shadow {
+		position: relative;
+	}
+	
+	.dom4-con .shadow-con .shadow:before {
+		z-index: -1;
+		position: absolute;
+		content: "";
+		bottom: 13px;
+		right: 7px;
+		width: 75%;
+		top: 0;
+		box-shadow: 0 15px 10px #777;
+		-webkit-transform: rotate(4deg);
+		transform: rotate(4deg);
+		transition: all 150ms ease-in-out;
+	}
+	
+	.dom4-con .shadow-con .box:hover {
+		background: linear-gradient(to right, #abbd73 0%, #abbd73 100%);
+	}
+	
+	.dom4-con .shadow-con .shadow:hover::before {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		bottom: 20px;
+		z-index: -10;
+	}
+	
+	.dom4-con .shadow-con .circle {
+		position: absolute;
+		top: 14px;
+		left: 15px;
+		border-radius: 50%;
+		box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.5), inset 0 0 0 25px antiquewhite;
+		width: 20px;
+		height: 20px;
+		display: inline-block;
+		text-align: right;
+		padding: 0 20px 0 0;
+	}
+	.dom4-con .text-con {
+		width: 500px;
+		margin-top: 0px;
+		margin-left: 320px;
+		height: 300px;
+		float: left;
+	}
+	
+	.dom4-con .text-con .title {
+		text-align: center;
+		margin-bottom: 60px;
+	}
+	
+	.dom4-con .text-con .txtDom {
+		font-size: 16px;
+		font-family: "微软雅黑";
+		line-height: 1.3em;
+		text-indent: 2em;
+	}
+</style>
+<body>
+	<div class="dom4-con">
+	<div class="shadow-con">
+		<h4 class="title">阴影</h4>
+		<div class="box shadow">
+			<a href="#">monkey</a>
+			<div class="circle"></div>
+		</div>
+		<div class="box shadow">
+			<a href="#">dog</a>
+			<div class="circle"></div>
+		</div>
+		<div class="box shadow">
+			<a href="#">cat</a>
+			<div class="circle"></div>
+		</div>
+	</div>
+	<div class="text-con">
+		<h4 class="title">文字特效</h4>
+		<div class="txtDom">
+			要是没有错误和失败，你就不会学到东西；要是没有痛苦，你就不会长大。 一旦你明白了这些，你就知道了一切事情都是为了某种目的而发生。 所以不要紧张或者认为生活不公平，因为一切事情都有原因，只有时间能诉说教会了我们什么。
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	var txtAnim = {
+
+		len: 0,
+
+		txtDom: "",
+
+		arrTxt: [],
+
+		init: function(obj) {
+
+			this.obj = obj;
+
+			this.txtDom = obj.innerHTML.replace(/\s+/g, "");
+
+			this.len = this.txtDom.length;
+
+			obj.innerHTML = "";
+
+			this.addDom();
+
+		},
+
+		addDom: function() {
+
+			for(var i = 0; i < this.len; i++) {
+
+				var spanDom = document.createElement("span");
+
+				spanDom.innerHTML = this.txtDom.substring(i, i + 1);
+
+				this.obj.appendChild(spanDom);
+
+				this.arrTxt.push(spanDom);
+
+			};
+
+			for(var j = 0; j < this.len; j++) {
+
+				this.arrTxt[j].style.position = "relative";
+
+			};
+
+			this.strat();
+
+		},
+
+		strat: function() {
+
+			for(var i = 0; i < this.len; i++) {
+
+				this.arrTxt[i].onmouseover = function() {
+
+					this.stop = 0;
+
+					this.speed = -1;
+
+					var $this = this;
+
+					this.timer = setInterval(function() {
+
+							$this.stop += $this.speed; //0 += -1
+							if($this.stop <= -20) {
+
+								$this.speed = 1;
+
+							}
+
+							$this.style.top = $this.stop + "px";
+
+							if($this.stop >= 0) {
+
+								clearInterval($this.timer)
+
+								$this.style.top = 0 + "px";
+
+							};
+
+						},
+						15);
+
+				};
+
+			}
+
+		}
+
+	}
+
+	var txtDom = document.querySelector(".txtDom");
+
+	txtAnim.init(txtDom);
+</script>
+</html>
+

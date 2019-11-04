@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>WallPaper</title>
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="util/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/load.css" />
+		<link rel="stylesheet" href="css/3dwindow.css" />
+		<link rel="stylesheet" href="css/musicBegin.css" />
+		<link rel="stylesheet" href="css/cloundTitle.css" />
+		<link rel="stylesheet" href="css/tankgame.css" />
+	</head>
+
+	<body>
+		<!--开场动画-->
+		<div class="load">
+			<div class="txt">loading</div>
+			<div class="bottom">
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+			</div>
+			<div class="top">
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+			</div>
+			<div class="right">
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+			</div>
+			<div class="left">
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+			</div>
+		</div>
+		<div id="page" class="page" style="display:none;opacity: 0;">
+			<!--头部-->
+			<div class="nav-bar text-center text-mut ">
+				<!--上部分-->
+				<div class="top-bar  hidden-sm hidden-xs">
+					<div class="container">
+						<div class="row">
+							<div class="top-bar-1 col-md-2">
+								<span>关注公众号</span>
+							</div>
+
+							<div class="top-bar-2 col-md-5">
+								<span>8888-555-6666(服务时间9：00-21:00)</span>
+							</div>
+
+							<div class="top-bar-3 col-md-2">
+								<span>校企合作</span>
+							</div>
+
+							<div class="top-bar-4 col-md-3">
+								<a href="reg" style="text-decoration: none;"><button class="btn-sm btn btn-primary">免费注册</button></a>
+								<a href="login" class='text-muted' style="margin-left: 15px;">立即登录</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--下部分-->
+				<nav class="navbar navbar-default navbar-static-top navbar-lk">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									        <span class="sr-only">Toggle navigation</span>
+									        <span class="icon-bar"></span>
+									        <span class="icon-bar"></span>
+									        <span class="icon-bar"></span>
+									      </button>
+							<a class="navbar-brand" href="javascript:;">
+								<img src="images/logo_2x.png" alt="" />
+							</a>
+						</div>
+
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li class="active">
+									<a href="javascript:;">发现</a>
+								</li>
+								<li>
+									<a href="javascript:;">最新</a>
+								</li>
+								<li>
+									<a href="javascript:;">美思</a>
+								</li>
+								<li>
+									<a href="javascript:;">教育</a>
+								</li>
+								<li>
+									<a href="javascript:;">活动</a>
+								</li>
+							</ul>
+							<ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
+								<li>
+									<a href="javascript:;">个人中心</a>
+								</li>
+							</ul>
+						</div>
+				</nav>
+				</div>
+				<!--中间广告切换-->
+				<section id="slider_banner" class="slider-banner">
+					<ul>
+						<li>
+							<a href=""></a>
+						</li>
+						<li>
+							<a href=""></a>
+						</li>
+						<li>
+							<a href=""></a>
+						</li>
+					</ul>
+				</section>
+				<!--绚丽小球-->
+				<section class='ball'>
+					<canvas id="canvas1" width="" height="">当前的浏览器不支持该版本！</canvas>
+				</section>
+				<!--类型标题-->
+				<section id="type_title" class="type-title">
+					<div class="type-title-in">
+						<span class="line-left"></span>
+						<span>美图</span>
+						<span class="line-right"></span>
+					</div>
+				</section>
+				<!--选项卡-->
+				<div id="tab" class="tab">
+					<!--title-->
+					<div id="tab_header" class="tab-header">
+						<ul>
+							<li class="current">采集</li>
+							<li>留言</li>
+							<li class="effects1">旋转木马</li>
+							<li class="effects2">音乐</li>
+						</ul>
+					</div>
+
+					<!--tab1-->
+					<div id="tab_content" class="tab-content">
+						<div class="dom" style="display: block">
+							<div class="clearfix"></div>
+							<div class="dom-pull" id="dom_pull">
+							</div>
+						</div>
+
+						<!--tab2-->
+						<div class="dom messaBoard">
+							<h1>留言板</h1>
+							<div class="container">
+								<div id="div2" class="text"></div>
+								<div id="div1" class="toolbar"> </div>
+							</div>
+							<div id="postmes">
+								<input type="button" name="" id="postmes_postBTN" value="发布" />
+								<input type="button" name="" id="clear_postBTN" value="清空" />
+							</div>
+							<div class="clearfix"></div>
+							<div id="div_tab">
+								<ul class="commentList" id="">
+									<li>1.友谊总需要用忠诚去播种，用热情去灌溉，用原则去培养，用谅解去护理。--马克思</li>
+									<li>2.生命的意义在于付出，在于给予，而不是在于接受，也不是在于争取。--巴金</li>
+									<li>3.人生下来不是为了抱着锁链，而是为了展开双翼。 --雨果</li>
+									<li>4.智者一切求自己，愚者一切求他人。 --卡莱</li>
+								</ul>
+							</div>
+						</div>
+
+						<!--tab3 旋转木马-->
+						<div class="dom">
+							<div class="container1">
+								<div class="case1">
+									<img src="images/g1.jpg" alt="" />
+									<img src="images/g2.jpg" alt="" />
+									<img src="images/g3.jpg" alt="" />
+									<img src="images/g4.jpg" alt="" />
+									<img src="images/g5.jpg" alt="" />
+									<img src="images/g6.jpg" alt="" />
+									<img src="images/g7.jpg" alt="" />
+									<img src="images/g8.jpg" alt="" />
+									<img src="images/g9.jpg" alt="" />
+								</div>
+							</div>
+						</div>
+
+						<div class="dom">
+							<!--<iframe name="shadow-text" src="shadow"/>-->
+							<!--这是3d悬挂牌子特效-->
+							<div class="cards">
+								<h3>宫崎骏</h3>
+								<h1>みやざき はやお</h1>
+								<div class="card card__one">
+									<div class="card__bg"></div>
+									<img class="card__img" src="img/3dr_mono.png" />
+									<div class="card__text">
+										<p class="card__title">Princess Mononoke</p>
+									</div>
+								</div>
+								<div class="card card__two">
+									<div class="card__bg"></div>
+									<img class="card__img" src="img/3dr_chihiro.png" />
+									<div class="card__text">
+										<p class="card__title">Spirited Away</p>
+									</div>
+								</div>
+								<div class="card card__three">
+									<div class="card__bg"></div>
+									<img class="card__img" src="img/3dr_howlcastle.png" />
+									<div class="card__text">
+										<p class="card__title">Howl's Moving Castle</p>
+									</div>
+								</div>
+							</div>
+							<!--这是3d悬挂牌子特效结束-->
+							<!--这是随音乐的波动图-->
+							<div class="music-wave">
+								<div class="music-wave-div1"></div>
+								<div class="music-wave-div1"></div>
+								<div class="music-wave-div1"></div>
+								<div class="music-wave-div1"></div>
+								<div class="music-wave-div1"></div>
+								<!--	<div class="music-wave-div1"></div>-->
+								<!--	<div class="music-wave-div1"></div>-->
+								<div class="music-play">
+									<!--<audio id="play1">
+												<source src="auto/火影民乐版"></source>
+											</audio>
+											<audio id="play2">
+												<source src="auto/青鸟"></source>
+											</audio>
+											<button class="btn-play"></button>
+											<button class="btn-stop"></button>
+											<button class="btn-pre"></button>
+											<button class="btn-next"></button>-->
+
+									<div class="musicL" id="musicL">
+										<div class="lir" id="lir"></div>
+										<button id="btn-play" style="width: 50px; height:50px; 
+														background-image:url(img/zhangting.png); margin-top:80px; margin-left: 55px;"></button>
+
+										<span class="play" id="play">
+														<i class="iconfont icon-bofang"></i>
+													</span>
+										<button id="btn-next" style="width: 50px; height: 50px;
+														background-image: url(img/shangyishou.png); margin-top: 80px;"></button>
+										<button id="btn-pre" style="width: 50px;height: 50px;
+														background-image: url(img/xiayishou.png);   margin-top: 80px;"></button>
+									</div>
+
+									<div class="progress">
+										<span class="start_time" id="start_time">00:00</span>
+										<div class="load-music" id="load-music">
+											<div class="circle-music" id="circle-music">
+												<div class="round" id="round">
+
+												</div>
+
+											</div>
+										</div>
+										<span class="total_time" id="total_time">00:00</span>
+									</div>
+
+								</div>
+								<audio id="audio"></audio>
+
+								<div class="music_list">
+									<ul id="ul" class="music_list_lrc">
+										<li>民乐版火影忍者主题曲.mp3</li>
+										<li>青鸟.mp3</li>
+										<li>Butter-Fly.mp3</li>
+
+									</ul>
+								</div>
+							</div>
+
+							<!--这是随音乐的波动图结束-->
+
+							<!--这是背景css3开始-->
+							<div class="clouddiv">
+								<div id="background" class="wall"></div>
+								<div id="midground" class="wall"></div>
+								<div id="foreground" class="wall"></div>
+								<div id="top" class="wall"></div>
+
+							</div>
+							<!--这是背景css3结束-->
+							<!--这是小游戏开始-->
+							<div class="game-tank" id="game-tank">
+								<a href="#" class="btn btn-bubble">css3气泡特效</a>
+								<canvas id="tankMap"></canvas>
+								<div id="tank1" class="tank1">
+
+								</div>
+								<div id="tank2" class="tank2">
+
+								</div>
+								<div id="tank3" class="tank3">
+
+								</div>
+							</div>
+							<!--这是小游戏结束-->
+						</div>
+					</div>
+				</div>
+
+				<!--返回顶部-->
+				<div id="toTop">
+					<img src="images/f1.png" />
+				</div>
+			</div>
+	</body>
+	<script src="util/js/move.min.js"></script>
+	<script src="util/js/jquery-1.9.1.min.js"></script>
+	<!--[if IE]>
+	<script src="util/js/html5.js"></script>
+	<![endif]-->
+	<script src="util/js/wangEditor.js"></script>
+	<script src="js/editor.js"></script>
+	<script src="util/js/bootstrap.min.js"></script>
+	<script src="js/MyFunc.js"></script>
+	<script src="util/js/Underscore-min.js"></script>
+	<script src="js/waterFull.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/ColorBall.js"></script>
+	<script src="js/round.js"></script>
+	<script src="js/tankgame.js"></script>
+	<script src="js/3dwindow.js"></script>
+	<script src="js/musicBegin.js"></script>
+
+</html>

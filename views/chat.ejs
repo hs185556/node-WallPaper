@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="util/css/bootstrap.css" />
+		<link rel="stylesheet" href="css/chat.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<div class="header">
+			<img src="images/heart.png" alt="" />
+			<p>wallpaper机器人</p>
+		</div>
+		<!--头部-->
+		<!--聊天列表-->
+		<div class="container-fluid chatbox">
+			<ul class="chat">
+				<!--<li class="customer">
+					<div class="container">
+						<span>我想吃饭</span>						
+						<img src="images/robot.jpg" width="52px" alt="" />
+					</div>
+				</li>
+				<li class="server">
+					<div class="container">
+						<img src="images/user.jpg" width="53px" alt="" />
+						<span>吃什么饭，敲代码去</span>
+					</div>
+				</li>-->
+			</ul>
+		</div>
+		<!--聊天界面-->
+		<!--输入框-->
+		<div class="send frc">
+			<input type="text" class='msg' placeholder="请输入聊天内容" autofocus/>
+			<botton class='btn btn-primary btn_send'>发送</botton>
+			<a href="/">
+				<botton class='btn btn-danger'>关闭</botton>
+			</a>
+		</div>
+		<!--输入框-->
+	</body>
+	<script src="util/js/jquery-1.9.1.min.js"></script>
+	<script src="util/js/bootstrap.min.js"></script>
+	<script src="socket.io/socket.io.js"></script>
+	<script src="js/chat.js"></script>
+</html>
